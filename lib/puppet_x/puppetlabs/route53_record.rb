@@ -11,6 +11,8 @@ module PuppetX
           end
         end
 
+
+
         newparam(:name) do
           desc 'The name of DNS record.'
           isnamevar
@@ -20,6 +22,13 @@ module PuppetX
           end
         end
 
+        newparam(:creds) do
+          desc 'The Creds for the AWS instance'
+          validate do |value|
+            fail 'Credentials are Required for launching' if value.empty?
+
+          end
+        end
 
         newproperty(:ttl) do
           desc 'The time to live for the record.'

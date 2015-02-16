@@ -3,6 +3,11 @@ require 'aws-sdk-core'
 module PuppetX
   module Puppetlabs
     class Aws < Puppet::Provider
+
+      def initialize(creds)
+        ENV['AWS_ACCESS_KEY_ID'] = creds['AWS_ACCESS_KEY_ID']
+        ENV['AWS_SECRET_ACCESS_KEY'] = creds['AWS_SECRET_ACCESS_KEY']
+      end
       def self.regions
         if ENV['AWS_REGION'] and not ENV['AWS_REGION'].empty?
           [ENV['AWS_REGION']]
