@@ -20,6 +20,7 @@ module PuppetX
           end
         end
 
+
         newproperty(:ttl) do
           desc 'The time to live for the record.'
           munge do |value|

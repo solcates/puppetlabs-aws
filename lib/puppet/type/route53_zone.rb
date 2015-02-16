@@ -9,5 +9,11 @@ Puppet::Type.newtype(:route53_zone) do
       fail Puppet::Error, 'Empty values are not allowed' if value == ''
     end
   end
+  newparam(:creds) do
+    desc 'Credentials for AWS'
+    validate do |value|
+      fail Puppet::Error, 'Must provide Credentials'
+    end
+  end
 
 end
